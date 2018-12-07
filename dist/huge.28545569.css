@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --huge-magenta: #ec008c;
+  --huge-grey: #808080;
+  --huge-white: #fff;
+}
+/*
+
+*/
+body {
+  background: var(--huge-magenta);
+  
+  font-family: 'Roboto', Arial, Helvetica, sans-serif, cursive;
+}
+
+h1 {
+  font-family: 'Mountains of Christmas', Arial, Helvetica, sans-serif, cursive;
+  font-size: 8rem;
+}
+h2 {
+  font-size: 7rem;
+}
+h3 {
+  font-size: 6rem;
+}
+h4 {
+  font-size: 5rem;
+}
+h5 {
+  font-size: 4rem;
+}
+h6 {
+  font-size: 3rem;
+}
+p {
+  font-size: 2rem;
+}
+
+h1,h2,h3,h4,h5,h6, p {
+  color: var(--huge-white);
+}
+
+.container {
+  
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.menu {
+  margin: 100px 0;
+  text-align: center;
+}
+
+.bigh {
+  background: red;
+}
+
+.santa {
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 500px;
+}
+
+.letter .wrapper {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.wrapper {
+  position: relative;
+}
