@@ -14,9 +14,31 @@
   <div class="container">
     <div class="menu">
       <h1 class="animated infinite pulse slower">Merry Christmas Huge!</h1>
-      <p class="subtitle">Please, tell us your purposes for the next year.</p>
-      <a href="#" class="button black">Send Purpose</a>
-      <p class="smalltext">(Click on the santa's to see purposes)</p>
+      <p class="subtitle">Tell us your purposes for the next year.</p>
+      <a href="#" class="button black purpose">Send Purpose</a>
+      <div class="form-container swing animated ">
+        <form class="form-wrapper" method="post">
+          <div class="form-input">
+            <label>Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="What's your name?">
+          </div>
+          <div class="form-input">
+            <label>Your Office:</label>
+            <input type="text" id="office" name="office" placeholder="Where are you?">
+          </div>
+          <div class="form-input">
+            <label>Your Purpose:</label>
+            <textarea type="text" id="purpose" name="purpose" cols="30" rows="10" placeholder="write your new year purpose"></textarea>
+          </div>
+          <div class="form-input">
+            <button type="submit" class="button black sendpurpose">Save</button>
+          </div>
+          <div class="form-submitted animated tada">
+            <p>Thank you!, now go check the others purposes</p>
+          </div>
+        </form>
+      </div>
+      <p class="smalltext">(Click on the santas to see other's purposes)</p>
     </div>
     <div class="letter">
       <div class="wrapper">
@@ -28,7 +50,7 @@
       Huge Inc &reg; 2018
     </div>
   </div>
-  
-  <script src="/js.00a46daa.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+  <script type="module" src="/js.00a46daa.js"></script>
 </body>
 </html>

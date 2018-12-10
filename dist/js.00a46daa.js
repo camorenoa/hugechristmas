@@ -104,9 +104,197 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
+})({"js/data.js":[function(require,module,exports) {
+"use strict";
 
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var HugeData =
+/*#__PURE__*/
+function () {
+  function HugeData() {
+    _classCallCheck(this, HugeData);
+
+    this.data = {};
+    this.init();
+    this.post = {
+      name: '',
+      purpose: '',
+      office: ''
+    };
+  }
+
+  _createClass(HugeData, [{
+    key: "init",
+    value: function init() {
+      this.connectToFirebase();
+    }
+  }, {
+    key: "connectToFirebase",
+    value: function connectToFirebase() {
+      var config = {
+        apiKey: "AIzaSyBeUzMx48ndfoavV0NO5Ip2a_DdvdnE_4k",
+        authDomain: "projectId.firebaseapp.com",
+        databaseURL: "https://christmas-huge.firebaseio.com/",
+        storageBucket: "bucket.appspot.com"
+      };
+      firebase.initializeApp(config);
+      this.data = firebase.database();
+    }
+  }, {
+    key: "writeData",
+    value: function writeData(post) {
+      var newPostKey = firebase.database().ref().child('purposes').push().key;
+      var updates = {};
+      var response = undefined;
+      updates['purposes/' + newPostKey] = post;
+      response = firebase.database().ref().update(updates);
+      response.then(function (data) {
+        var event = new Event("closeForm", {
+          bubbles: true
+        });
+        document.dispatchEvent(event);
+      });
+      return true;
+    }
+  }, {
+    key: "readData",
+    value: function readData() {
+      var posts = firebase.database().ref('purposes/');
+      var response = [];
+      posts.orderByKey().on('child_added', function (snapshot) {
+        response.push({
+          name: snapshot.val().name,
+          office: snapshot.val().office,
+          purpose: snapshot.val().purpose
+        });
+      });
+      return response;
+    }
+  }]);
+
+  return HugeData;
+}();
+
+;
+var _default = HugeData;
+exports.default = _default;
+},{}],"js/huge.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _data = _interopRequireDefault(require("./data"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var HugeChristmas =
+/*#__PURE__*/
+function () {
+  function HugeChristmas() {
+    _classCallCheck(this, HugeChristmas);
+
+    this.data = {};
+    this.init();
+    this.purposeButton = {};
+    this.formNode = {};
+    this.santas = [];
+  }
+
+  _createClass(HugeChristmas, [{
+    key: "init",
+    value: function init() {
+      this.data = new _data.default();
+      this.listeners();
+      this.loadSantas().then(function (result) {
+        console.log('result', result);
+      });
+    }
+  }, {
+    key: "loadSantas",
+    value: function loadSantas() {
+      var data = this.data.readData();
+      return data;
+    }
+  }, {
+    key: "listeners",
+    value: function listeners() {
+      var _this = this;
+
+      this.purposeButton = document.querySelector('.purpose');
+      this.saveButton = document.querySelector('.sendpurpose');
+      var formNode = document.querySelector('.form-container');
+      var formLogic = document.querySelector('.form-wrapper');
+      var name = document.getElementById('name');
+      var purpose = document.getElementById('purpose');
+      var office = document.getElementById('office');
+      this.purposeButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        formNode.classList.toggle('active');
+        formNode.classList.remove('submitted');
+        formLogic.reset();
+      });
+      document.addEventListener("closeForm", function (event) {
+        setTimeout(function () {
+          return formNode.classList.add('submitted');
+        }, 300);
+        setTimeout(function () {
+          return formNode.classList.toggle('active');
+        }, 3000);
+      });
+      this.saveButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log(new FormData(document.querySelector('.form-wrapper')));
+
+        var post = _this.writePost({
+          name: name.value,
+          purpose: purpose.value,
+          office: office.value
+        });
+      });
+    }
+  }, {
+    key: "writePost",
+    value: function writePost(post) {
+      var response = this.data.writeData(post);
+      return response;
+      console.log(response);
+    }
+  }]);
+
+  return HugeChristmas;
+}();
+
+;
+var _default = HugeChristmas;
+exports.default = _default;
+},{"./data":"js/data.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _huge = _interopRequireDefault(require("./huge"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var huge = new _huge.default();
+},{"./huge":"js/huge.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -133,7 +321,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57439" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -276,3 +464,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+//# sourceMappingURL=/js.00a46daa.map
