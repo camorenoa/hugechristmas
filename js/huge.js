@@ -1,4 +1,5 @@
 import HugeData from './data';
+import { positionator } from "./posionator";
 
 class HugeChristmas {
   constructor() {
@@ -10,6 +11,10 @@ class HugeChristmas {
   }
 
   init() {
+    // TODO: wire this with real santas from firebase
+    const santas = [...Array(50).keys()];
+    positionator(santas);
+
     this.data = new HugeData();
     this.listeners();
     this.loadSantas().then((result) => {
