@@ -126,3 +126,61 @@ h1,h2,h3,h4,h5,h6, p {
 	background-color: #ec008c !important;
 	color: #fff;
 }
+
+.form-container {
+  align-content: center;
+  background: var(--huge-white);
+  border: 1px solid var(--huge-black);
+  display: none;
+  justify-content: center;
+  margin: 20px auto;
+  opacity: 0;
+  padding: 30px;
+  transform: scale(0);
+  transition: all .5s linear;
+  width: 400px;
+}
+
+.form-container.active {
+  display: flex;
+  opacity: 1;
+  position: relative;
+  transform: scale(1);
+  width: 400px;
+}
+
+.form-container .form-input {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 10px 0;
+}
+.form-container .form-input label {
+  margin-bottom: 20px;
+}
+
+.form-container .form-input input,
+.form-container .form-input textarea {
+  font-size: .8rem;
+  height: 25px;
+  padding: 10px;
+  width: 400px;
+}
+
+.form-submitted {
+  background: var(--huge-magenta);
+  display: none;
+  padding: 10px;
+}
+
+.form-submitted p {
+  color: var(--huge-white);
+}
+
+.form-container.submitted .form-submitted {
+  display: block;
+}
+
+.form-container .form-input textarea {
+  height: 70px;
+}
