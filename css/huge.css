@@ -21,22 +21,22 @@ body {
 
 h1 {
   font-family: 'Mountains of Christmas', Arial, Helvetica, sans-serif, cursive;
-  font-size: 7.5rem;
-}
-h2 {
-  font-size: 7rem;
-}
-h3 {
   font-size: 6rem;
 }
-h4 {
+h2 {
   font-size: 5rem;
 }
-h5 {
+h3 {
   font-size: 4rem;
 }
-h6 {
+h4 {
   font-size: 3rem;
+}
+h5 {
+  font-size: 3.5rem;
+}
+h6 {
+  font-size: 2.5rem;
 }
 p {
   font-size: 2rem;
@@ -52,8 +52,12 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .menu {
-  margin: 50px 0 150px;
+  margin: 100px 0;
   text-align: center;
+}
+
+.title {
+  padding: 0 30px;
 }
 
 .footer {
@@ -145,13 +149,19 @@ h1,h2,h3,h4,h5,h6, p {
   position: relative;
 }
 
-.subtitle {
+.submenu {
+  border-radius: 5px;
+  margin: 100px auto;
+  padding: 50px;
+  width: 80%;
+}
+
+.submenu .button {
   margin: 50px 0;
 }
 
 .smalltext {
   font-size: .8rem;
-  margin-top: 30px;
 }
 
 .button {
