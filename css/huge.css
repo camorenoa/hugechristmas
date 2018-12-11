@@ -20,8 +20,8 @@ body {
 }
 
 h1 {
-  font-family: 'Mountains of Christmas', Arial, Helvetica, sans-serif, cursive;
   font-size: 6rem;
+  line-height: 7rem;
 }
 h2 {
   font-size: 5rem;
@@ -52,12 +52,44 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .menu {
-  margin: 100px 0;
+  margin: 50px 0 0;
   text-align: center;
 }
 
 .title {
   padding: 0 30px;
+}
+
+.h-logo {
+  height: 74px;
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 500ms cubic-bezier(0.25, 0.1, 0.25, 1),opacity 500ms cubic-bezier(0.25, 0.1, 0.25, 1),background-color 200ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  width: 60px;
+  z-index: 200;
+}
+
+.h-logo--wink {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: none;
+  height: 148px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform-origin: 0 0;
+  transform: scale(0.405);
+  width: 148px;
+  z-index: 1;
+}
+
+.h-logo__svg {
+  fill: var(--huge-magenta);
+  height: 28px;
+  width: 20px;
 }
 
 .footer {
@@ -104,7 +136,8 @@ h1,h2,h3,h4,h5,h6, p {
 
 .purpose-data-container {
   background: var(--huge-white);
-  border: 1px solid var(--huge-grey-dark);
+  border: 1px solid var(--huge-magenta);
+  border-radius: 10px;
   margin: 0 auto;
   padding: 20px;
   position: relative;
@@ -140,9 +173,9 @@ h1,h2,h3,h4,h5,h6, p {
   font-size: .8rem;
 }
 
-.letter .wrapper {
+.word .wrapper {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 .wrapper {
@@ -151,7 +184,7 @@ h1,h2,h3,h4,h5,h6, p {
 
 .submenu {
   border-radius: 5px;
-  margin: 100px auto;
+  margin: 0 auto;
   padding: 50px;
   width: 80%;
 }
@@ -162,6 +195,10 @@ h1,h2,h3,h4,h5,h6, p {
 
 .smalltext {
   font-size: .8rem;
+}
+
+.seesantas {
+  color: var(--huge-magenta);
 }
 
 .button {

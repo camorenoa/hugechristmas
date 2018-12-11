@@ -1,0 +1,75 @@
+.hugetitle p {
+  color: #fff;
+  font-family: Avenir Next, Helvetica Neue, Helvetica, Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.hugetitle p span {
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500;
+  -webkit-font-smoothing: antialiased;
+}
+.hugetitle p span::before,
+.hugetitle p span::after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  transform-origin: left top;
+  transition: all ease-out 0.3s;
+  content: attr(data-text);
+}
+.hugetitle p span::before {
+  z-index: 1;
+  color: rgba(0,0,0,0.2);
+  transform: scale(.9, 1) skew(0deg, 20deg);
+}
+.hugetitle p span::after {
+  z-index: 2;
+  color: #ec008c;
+  text-shadow: -1px 0 1px #ec008c, 1px 0 1px rgba(0,0,0,0.8);
+  transform: rotateY(-40deg);
+}
+.hugetitle p span:hover::before {
+  transform: scale(1.1, 1) skew(0deg, 5deg);
+}
+.hugetitle p span:hover::after {
+  transform: rotateY(-10deg);
+}
+.hugetitle p span + span {
+  margin-left: 0.3em;
+}
+@media (min-width: 20em) {
+  .hugetitle p {
+    font-size: 2em;
+  }
+  .hugetitle p span::before,
+  .hugetitle p span::after {
+    display: block;
+  }
+}
+@media (min-width: 30em) {
+  .hugetitle p {
+    font-size: 3em;
+  }
+}
+@media (min-width: 40em) {
+  .hugetitle p {
+    font-size: 5em;
+  }
+}
+@media (min-width: 60em) {
+  .hugetitle p {
+    font-size: 6em;
+  }
+}
+
+.hugetitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ec008c;
+  margin: 50px 0 50px 0;
+}

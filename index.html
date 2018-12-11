@@ -11,6 +11,7 @@
       href="css/HUGE-AvantGarde-Bold.css"
     />
     <link rel="stylesheet" type="text/css" href="css/huge.css" />
+    <link rel="stylesheet" type="text/css" href="css/hugeword.css" />
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas"
@@ -20,11 +21,12 @@
   </head>
   <body>
     <div class="container">
-      <div class="menu">
+      <div class="menu">    
+      <button class="h-logo animated slower flipInX" id="header-logo-huge" tabindex="0"><div class="h-logo--wink" style="background-image:url(//images.ctfassets.net/fiz3jwws2um7/57mQrUMgmAQcEiu4mYKECA/46ed674eaf0bb26f396e4eccb64fa691/hwink_sequence.png?h=148)"></div><svg class="h-logo__svg" viewBox="0 0 20 28" xmlns="http://www.w3.org/2000/svg" title="Menu"><path class="h-logo__path" d="M35,24H28V51h7V41h6V51h7V24H41V34H35V24Z" transform="translate(-28 -24)"></path></svg></button>
         <h1 class="animated infinite pulse slower title">Merry Christmas and Happy New Year Huge!</h1>
         <div class="submenu">
-          <p class="subtitle">Tell us your purposes for the next year.</p>
-          <a href="#" class="button black purpose">Send Purpose</a>
+          <p class="subtitle animated flipInX">Tell us your purposes for the next year.</p>
+          <a href="#" class="button black purpose  animated flipInX">Send Purpose</a>
           <div class="form-container swing animated ">
             <form class="form-wrapper" method="post">
               <div class="form-input">
@@ -67,10 +69,18 @@
             </form>
             <a class="close" href="#">X</a>
           </div>
-          <p class="smalltext">(See all the sent purposes -> Click on the santa's)</p>
+          <p class="smalltext animated flipInX"><a href="#" class="seesantas">(See sent purposes - Click on the santa's)</a></p>
         </div>
       </div>
-      <div class="letter">
+      <div class="hugetitle animated fadeInRight">
+        <p aria-label="huge">
+          <span data-text="2">2</span>
+          <span data-text="0">0</span>
+          <span data-text="1">1</span>
+          <span data-text="9">9</span>
+        </p>
+      </div>
+      <div class="word">
         <div class="wrapper">
           <img class="big animated rubberBand" src="assets/images/huge.svg" />
         </div>

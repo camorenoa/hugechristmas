@@ -1,5 +1,6 @@
 import HugeData from './data';
 import { positionator } from "./posionator";
+import smoothscroll from 'smoothscroll-polyfill';
 
 class HugeChristmas {
   constructor() {
@@ -14,6 +15,7 @@ class HugeChristmas {
     this.data = new HugeData();
     this.listeners();
     this.santas = this.data.readData();
+    smoothscroll.polyfill();
   }
 
   loadSantas(santas) {
@@ -58,15 +60,23 @@ class HugeChristmas {
     const closeWindow = document.querySelector('.purpose-data .close');
     const messageContainer = document.querySelector('.purpose-data');
     const closeFormButton = document.querySelector('.form-container .close');
+    const seesantas = document.querySelector('.seesantas');
 
     this.purposeButton.addEventListener('click', (e) => {
       e.preventDefault();
       this.closeForm();
+      window.scroll({ top: 600, left: 0, behavior: 'smooth' });
+    });
+
+    seesantas.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scroll({ top: 820, left: 0, behavior: 'smooth' });
     });
     
     closeFormButton.addEventListener('click', (e) => {
       e.preventDefault();
       this.closeForm();
+      window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     });
 
     closeWindow.addEventListener('click', (e) => {
