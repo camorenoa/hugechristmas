@@ -7,11 +7,14 @@ const santaImages = [santaImageDefault, santaImageHi, santaImageSit];
 export function positionator(santas) {
   const wrapper = document.querySelector(".wrapper");
   const h = document.querySelector(".big");
-  const santaHeight = 50;
+  let santaHeight = 50;
   const hWidth = h.clientWidth;
   const hHeight = h.clientHeight;
 
   const canvas = document.createElement("canvas");
+  if (window.innerWidth < 600) {
+    santaHeight = 25;
+  } 
   canvas.width = hWidth;
   canvas.height = hHeight;
   canvas.getContext("2d").drawImage(h, 0, 0, hWidth, hHeight);
