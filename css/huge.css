@@ -122,7 +122,7 @@ h1,h2,h3,h4,h5,h6, p {
   overflow: auto;
   position: fixed;
   transform: scale(0);
-  transition: .3s all ease-in;
+  transition: .2s all ease-in;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -163,7 +163,6 @@ h1,h2,h3,h4,h5,h6, p {
 .purpose-data .purpose-office {
   color: var(--huge-grey);
   font-size: 1.2rem;
-  font-style: italic;
 }
 
 .purpose-data .purpose-text {
@@ -297,11 +296,17 @@ h1,h2,h3,h4,h5,h6, p {
 
 @media only screen and (max-width: 600px) {
   h1 {
-    font-size: 5.5rem;
+    font-size: 3.5rem;
+    line-height: 4rem;
   }
   .form-container,
   .form-container .form-input input,
   .form-container .form-input textarea {
     width: 260px;
+  }
+
+  .submenu {
+    padding: 50px 0;
+    width: 85%;
   }
 }
