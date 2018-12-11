@@ -22,11 +22,6 @@ h1 {
   font-family: 'Mountains of Christmas', Arial, Helvetica, sans-serif, cursive;
   font-size: 7.5rem;
 }
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 5.5rem;
-  }
-}
 h2 {
   font-size: 7rem;
 }
@@ -215,7 +210,6 @@ h1,h2,h3,h4,h5,h6, p {
   opacity: 1;
   position: relative;
   transform: scale(1);
-  width: 400px;
 }
 
 .form-container .form-input {
@@ -252,4 +246,15 @@ h1,h2,h3,h4,h5,h6, p {
 
 .form-container .form-input textarea {
   height: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 5.5rem;
+  }
+  .form-container,
+  .form-container .form-input input,
+  .form-container .form-input textarea {
+    width: 260px;
+  }
 }
