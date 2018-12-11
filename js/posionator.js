@@ -1,3 +1,9 @@
+import santaImageDefault from '../assets/images/santa.svg';
+import santaImageHi from '../assets/images/santa-hi.svg';
+import santaImageSit from '../assets/images/santa-sit.svg';
+
+const santaImages = [santaImageDefault, santaImageHi, santaImageSit];
+
 export function positionator(santas) {
   const wrapper = document.querySelector(".wrapper");
   const h = document.querySelector(".big");
@@ -25,7 +31,7 @@ export function positionator(santas) {
 
     const santa = document.createElement('img');
     santa.className = "santa-random ";
-    santa.src = "/santa.03f3de27.svg"; // TODO: try to remove parcel hash (maybe do a direct require/import?)
+    santa.src = santaImages[Math.floor(Math.random() * 3)];
     santa.style = `left:${randomX}px;top:${randomY - santaHeight}px;cursor:pointer;`;
     santa.dataset.name = santas[i].name;
     santa.dataset.office = santas[i].office;
