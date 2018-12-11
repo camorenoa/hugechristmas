@@ -54,6 +54,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .menu {
+  height: 100vh;
   margin: 50px 0 0;
   text-align: center;
 }
@@ -142,6 +143,10 @@ h1,h2,h3,h4,h5,h6, p {
   width: 50%;
 }
 
+.form-container {
+  z-index: 1;
+}
+
 .purpose-data-container .close,
 .form-container .close {  
   color: var(--huge-black);
@@ -187,11 +192,11 @@ h1,h2,h3,h4,h5,h6, p {
 .submenu {
   border-radius: 5px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 100px 0;
   width: 80%;
 }
 
-.submenu .button {
+.purpose {
   margin: 50px 0;
 }
 

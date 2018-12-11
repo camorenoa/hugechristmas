@@ -70,7 +70,7 @@ class HugeChristmas {
 
     seesantas.addEventListener('click', (e) => {
       e.preventDefault();
-      window.scroll({ top: 820, left: 0, behavior: 'smooth' });
+      window.scroll({ top: 900, left: 0, behavior: 'smooth' });
     });
     
     closeFormButton.addEventListener('click', (e) => {
