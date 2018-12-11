@@ -116,12 +116,13 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .purpose-data {
+  background: var(--huge-white);
   height: 100%;
   left: 0;
   overflow: auto;
   position: fixed;
   transform: scale(0);
-  transition: .2s all ease;
+  transition: .3s all ease-in;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -133,12 +134,11 @@ h1,h2,h3,h4,h5,h6, p {
 
 .purpose-data-container {
   background: var(--huge-white);
-  border: 1px solid var(--huge-magenta);
   border-radius: 10px;
   margin: 0 auto;
   padding: 20px;
   position: relative;
-  top: 40%;
+  top: 30%;
   width: 50%;
 }
 
@@ -149,25 +149,31 @@ h1,h2,h3,h4,h5,h6, p {
   position: absolute;
   right: 20px;
   text-decoration: none;
+  transition: .2s all linear;
   top: 20px;
+}
+
+.purpose-data-container .close:hover {
+  color: var(--huge-magenta);
 }
 
 .purpose-data p {
   padding: 10px 0;
 }
 .purpose-data .purpose-office {
-  color: var(--huge-magenta);
-  font-size: .8rem;
+  color: var(--huge-grey);
+  font-size: 1.2rem;
   font-style: italic;
 }
 
 .purpose-data .purpose-text {
-  font-size: 1.1rem;
+  font-size: 2.4rem;
+  line-height: 3rem;
 }
 
 .purpose-data .purpose-name {
   color: var(--huge-magenta);
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 .word .wrapper {
