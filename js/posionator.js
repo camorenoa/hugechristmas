@@ -23,11 +23,13 @@ export function positionator(santas) {
         .data;
     }
 
-    const santa = document.createElement("img");
-    santa.className = "santa animated infinite pulse slow";
+    const santa = document.createElement('img');
+    santa.className = "santa-random ";
     santa.src = "/santa.03f3de27.svg"; // TODO: try to remove parcel hash (maybe do a direct require/import?)
-    santa.style = `left:${randomX}px;top:${randomY - santaHeight}px`;
-
+    santa.style = `left:${randomX}px;top:${randomY - santaHeight}px;cursor:pointer;`;
+    santa.dataset.name = santas[i].name;
+    santa.dataset.office = santas[i].office;
+    santa.dataset.purpose = santas[i].purpose;
     wrapper.appendChild(santa);
   }
 }

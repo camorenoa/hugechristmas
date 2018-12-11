@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 class HugeData {
   constructor() {
     this.data = {};
@@ -41,7 +43,7 @@ class HugeData {
   readData() {
     let posts = firebase.database().ref('purposes/');
     let response = [];
-    
+
     posts.orderByKey().on('child_added', function(snapshot) {
       response.push({
         name: snapshot.val().name,
@@ -49,7 +51,7 @@ class HugeData {
         purpose: snapshot.val().purpose
       });
     });
-    
+
     return response;
   }
   

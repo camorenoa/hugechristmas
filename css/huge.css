@@ -68,11 +68,75 @@ h1,h2,h3,h4,h5,h6, p {
   background: red;
 }
 
-.santa {
+.santa-random {
+  opacity: .6;
   height: 50px;
   position: absolute;
   top: 0;
   left: 500px;
+  animation: pulse 1s infinite, bounceInDown 2s;
+  transition: all .3s linear;
+}
+
+.santa-random:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.purpose-data {
+  background-color: rgba(0,0,0,0.4);
+  border: 1px solid var(--huge-black);
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  transform: translateY(150%);
+  transition: .2s all ease;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.purpose-data.visible {
+  transform: translateY(0);
+}
+
+.purpose-data-container {
+  background: var(--huge-white);
+  border: 1px solid var(--huge-grey-dark);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  top: 40%;
+  width: 50%;
+}
+
+.purpose-data-container .close,
+.form-container .close {  
+  color: var(--huge-black);
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  text-decoration: none;
+  top: 20px;
+}
+
+.purpose-data p {
+  padding: 10px 0;
+}
+.purpose-data .purpose-office {
+  color: var(--huge-magenta);
+  font-size: .8rem;
+  font-style: italic;
+}
+
+.purpose-data .purpose-text {
+  font-size: 1.1rem;
+}
+
+.purpose-data .purpose-name {
+  color: var(--huge-magenta);
+  font-size: .8rem;
 }
 
 .letter .wrapper {

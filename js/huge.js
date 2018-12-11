@@ -12,19 +12,49 @@ class HugeChristmas {
 
   init() {
     // TODO: wire this with real santas from firebase
-    const santas = [...Array(50).keys()];
-    positionator(santas);
-
     this.data = new HugeData();
     this.listeners();
-    this.loadSantas().then((result) => {
-      console.log('result', result)
+    this.santas = this.data.readData();
+    let promiseSantas = new Promise((resolve, reject) => {
+      resolve(this.data.readData());
     });
+    promiseSantas.then((santas) => {
+      this.santas = santas;
+      setTimeout(() => {
+        this.loadSantas(this.santas);
+      }, 1000);
+    });
+    
   }
-  
-  loadSantas() {
-    let data = this.data.readData();
-    return data;
+
+  loadSantas(santas) {
+    positionator(santas);
+    this.santaEvent();
+  }
+
+  santaEvent() {
+    const santasDom = document.querySelectorAll('.santa-random');
+    const scope = this;
+    for (let node of santasDom) {
+      node.addEventListener('click', function(e) {
+        scope.createWindow(e, {
+          ...e.target.dataset
+        });
+      }); 
+    }
+  }
+
+  createWindow(e, data) {
+    const messageContainer = document.querySelector('.purpose-data');
+    let messageOffice = document.querySelector('.purpose-office');
+    let messageText = document.querySelector('.purpose-text');
+    let messageName = document.querySelector('.purpose-name');
+    
+    messageContainer.classList.add('visible');
+    messageOffice.innerHTML = data.office;
+    messageText.innerHTML = data.purpose;
+    messageName.innerHTML = data.name;
+
   }
 
   listeners() {
@@ -35,15 +65,26 @@ class HugeChristmas {
     const name = document.getElementById('name');
     const purpose = document.getElementById('purpose');
     const office = document.getElementById('office');
+    const closeWindow = document.querySelector('.purpose-data .close');
+    const messageContainer = document.querySelector('.purpose-data');
+    const closeFormButton = document.querySelector('.form-container .close');
 
     this.purposeButton.addEventListener('click', (e) => {
       e.preventDefault();
-      formNode.classList.toggle('active');
-      formNode.classList.remove('submitted');
-      formLogic.reset();
+      this.closeForm();
+    });
+    
+    closeFormButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.closeForm();
     });
 
-    document.addEventListener("closeForm", function(event) {
+    closeWindow.addEventListener('click', (e) => {
+      e.preventDefault();
+      messageContainer.classList.remove('visible');
+    });
+
+    document.addEventListener("closeForm", function(e) {
       setTimeout(() => formNode.classList.add('submitted'), 300);
       setTimeout(() => formNode.classList.toggle('active'), 3000);
     });
@@ -59,11 +100,17 @@ class HugeChristmas {
     });
   }
 
+  closeForm() {
+    const formNode = document.querySelector('.form-container');
+    const formLogic = document.querySelector('.form-wrapper');
+    formNode.classList.toggle('active');
+    formNode.classList.remove('submitted');
+    formLogic.reset();
+  }
   
   writePost(post) {
     let response = this.data.writeData(post);
     return response;
-    console.log(response);
   }
 };
 

@@ -64,22 +64,33 @@
               <p>Thank you!, now go check the others purposes</p>
             </div>
           </form>
+          <a class="close" href="#">X</a>
         </div>
         <p class="smalltext">(Click on the santas to see other's purposes)</p>
       </div>
       <div class="letter">
         <div class="wrapper">
-          <img class="big" src="assets/images/huge.svg" />
+          <img class="big animated rubberBand" src="assets/images/huge.svg" />
           <img
-            class="santa animated infinite pulse slow"
-            src="assets/images/santa.svg"
+            class="santa"
+            src="assets/images/santa-walking.svg"
             style="display: none"
           />
         </div>
       </div>
+      <div class="purpose-data">
+        <div class="purpose-data-container">
+          <p class="purpose-office"></p>
+          <p class="purpose-text"></p>
+          <p class="purpose-name"></p>
+          <a class="close" href="#">X</a>
+        </div>
+      </div>
       <div class="footer">Huge Inc &reg; 2018</div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
     <script type="module" src="js/index.js"></script>
   </body>
 </html>
