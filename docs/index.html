@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="/HUGE-AvantGarde-Bold.da261e83.css">
+    <link rel="stylesheet" type="text/css" href="/huge.28545569.css">
+    <link rel="stylesheet" type="text/css" href="/animate.97a9d823.css">
+    <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet">
+    <title>Huge Christmas</title>
+  <script src="/HUGE-AvantGarde-Bold.da261e83.js"></script><script src="/huge.28545569.js"></script><script src="/animate.97a9d823.js"></script></head>
+  <body>
+    <div class="container">
+      <div class="menu">
+        <h1 class="animated infinite pulse slower">Merry Christmas Huge!</h1>
+        <p class="subtitle">Tell us your purposes for the next year.</p>
+        <a href="#" class="button black purpose">Send Purpose</a>
+        <div class="form-container swing animated ">
+          <form class="form-wrapper" method="post">
+            <div class="form-input">
+              <label>Your Name:</label>
+              <input type="text" id="name" name="name" placeholder="What's your name?">
+            </div>
+            <div class="form-input">
+              <label>Your Office:</label>
+              <input type="text" id="office" name="office" placeholder="Where are you?">
+            </div>
+            <div class="form-input">
+              <label>Your Purpose:</label>
+              <textarea type="text" id="purpose" name="purpose" cols="30" rows="10" placeholder="write your new year purpose"></textarea>
+            </div>
+            <div class="form-input">
+              <button type="submit" class="button black sendpurpose">
+                Save
+              </button>
+            </div>
+            <div class="form-submitted animated tada">
+              <p>Thank you!, now go check the others purposes</p>
+            </div>
+          </form>
+          <a class="close" href="#">X</a>
+        </div>
+        <p class="smalltext">(Click on the santas to see other's purposes)</p>
+      </div>
+      <div class="letter">
+        <div class="wrapper">
+          <img class="big animated rubberBand" src="/huge.62bc7a6a.svg">
+          <img class="santa" src="/santa-walking.6c6972c3.svg" style="display: none">
+        </div>
+      </div>
+      <div class="purpose-data">
+        <div class="purpose-data-container">
+          <p class="purpose-office"></p>
+          <p class="purpose-text"></p>
+          <p class="purpose-name"></p>
+          <a class="close" href="#">X</a>
+        </div>
+      </div>
+      <div class="footer">Huge Inc &reg; 2018</div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+    <script type="module" src="/js.00a46daa.js"></script>
+  </body>
+</html>

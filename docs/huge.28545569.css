@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --huge-black: #000;
+  --huge-grey: #808080;
+  --huge-grey-dark: #232525;
+  --huge-magenta: #ec008c;
+  --huge-white: #fff;
+  --huge-blue: #2fbbf9;
+}
+/*
+
+*/
+body {
+  background: var(--huge-white);
+  font-family: "HUGEAvantGarde", Georgia;
+}
+
+h1 {
+  font-family: 'Mountains of Christmas', Arial, Helvetica, sans-serif, cursive;
+  font-size: 7.5rem;
+}
+h2 {
+  font-size: 7rem;
+}
+h3 {
+  font-size: 6rem;
+}
+h4 {
+  font-size: 5rem;
+}
+h5 {
+  font-size: 4rem;
+}
+h6 {
+  font-size: 3rem;
+}
+p {
+  font-size: 2rem;
+}
+
+h1,h2,h3,h4,h5,h6, p {
+  color: var(--huge-black);
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.menu {
+  margin: 50px 0 150px;
+  text-align: center;
+}
+
+.footer {
+  align-content: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: 100px 0 0;
+  text-align: center;
+}
+
+.bigh {
+  background: red;
+}
+
+.santa-random {
+  opacity: .6;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 500px;
+  animation: pulse 1s infinite, bounceInDown 2s;
+  transition: all .3s linear;
+}
+
+.santa-random:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.purpose-data {
+  background-color: rgba(0,0,0,0.4);
+  border: 1px solid var(--huge-black);
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  transform: translateY(150%);
+  transition: .2s all ease;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.purpose-data.visible {
+  transform: translateY(0);
+}
+
+.purpose-data-container {
+  background: var(--huge-white);
+  border: 1px solid var(--huge-grey-dark);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  top: 40%;
+  width: 50%;
+}
+
+.purpose-data-container .close,
+.form-container .close {  
+  color: var(--huge-black);
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  text-decoration: none;
+  top: 20px;
+}
+
+.purpose-data p {
+  padding: 10px 0;
+}
+.purpose-data .purpose-office {
+  color: var(--huge-magenta);
+  font-size: .8rem;
+  font-style: italic;
+}
+
+.purpose-data .purpose-text {
+  font-size: 1.1rem;
+}
+
+.purpose-data .purpose-name {
+  color: var(--huge-magenta);
+  font-size: .8rem;
+}
+
+.letter .wrapper {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.subtitle {
+  margin: 50px 0;
+}
+
+.smalltext {
+  font-size: .8rem;
+  margin-top: 30px;
+}
+
+.button {
+	cursor: pointer;
+	text-decoration: none !important;
+	display: inline-block;
+	font-family: Arial,sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	-webkit-transition: background-color 0.3s,opacity 0.3s;
+	-moz-transition: background-color 0.3s,opacity 0.3s;
+	-o-transition: background-color 0.3s,opacity 0.3s;
+	transition: background-color 0.3s,opacity 0.3s;
+}
+
+.button.load {
+	-webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+	-moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+	-o-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+	transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+.button.black {
+	background: var(--huge-black);
+	width: 160px;
+	height: 54px;
+	line-height: 54px;
+	font-size: 13px;
+}
+
+.button:hover {
+	background-color: #ec008c !important;
+	color: #fff;
+}
+
+.form-container {
+  align-content: center;
+  background: var(--huge-white);
+  border: 1px solid var(--huge-black);
+  display: none;
+  justify-content: center;
+  margin: 20px auto;
+  opacity: 0;
+  padding: 30px;
+  transform: scale(0);
+  transition: all .5s linear;
+  width: 400px;
+}
+
+.form-container.active {
+  display: flex;
+  opacity: 1;
+  position: relative;
+  transform: scale(1);
+  width: 400px;
+}
+
+.form-container .form-input {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 10px 0;
+}
+.form-container .form-input label {
+  margin-bottom: 20px;
+}
+
+.form-container .form-input input,
+.form-container .form-input textarea {
+  font-size: .8rem;
+  height: 25px;
+  padding: 10px;
+  width: 400px;
+}
+
+.form-submitted {
+  background: var(--huge-magenta);
+  display: none;
+  padding: 10px;
+}
+
+.form-submitted p {
+  color: var(--huge-white);
+}
+
+.form-container.submitted .form-submitted {
+  display: block;
+}
+
+.form-container .form-input textarea {
+  height: 70px;
+}
