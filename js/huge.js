@@ -11,23 +11,13 @@ class HugeChristmas {
   }
 
   init() {
-    // TODO: wire this with real santas from firebase
     this.data = new HugeData();
     this.listeners();
     this.santas = this.data.readData();
-    let promiseSantas = new Promise((resolve, reject) => {
-      resolve(this.data.readData());
-    });
-    promiseSantas.then((santas) => {
-      this.santas = santas;
-      setTimeout(() => {
-        this.loadSantas(this.santas);
-      }, 1000);
-    });
-    
   }
 
   loadSantas(santas) {
+    console.log('santas', santas);
     positionator(santas);
     this.santaEvent();
   }
@@ -87,6 +77,10 @@ class HugeChristmas {
     document.addEventListener("closeForm", function(e) {
       setTimeout(() => formNode.classList.add('submitted'), 300);
       setTimeout(() => formNode.classList.toggle('active'), 3000);
+    });
+
+    document.addEventListener("loadSantasData", (e) => {
+      this.loadSantas(e.detail);
     });
 
     this.saveButton.addEventListener('click', (e) => {

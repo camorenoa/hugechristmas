@@ -44,14 +44,20 @@ class HugeData {
     let posts = firebase.database().ref('purposes/');
     let response = [];
 
+
     posts.orderByKey().on('child_added', function(snapshot) {
+      response = [];
       response.push({
         name: snapshot.val().name,
         office: snapshot.val().office,
         purpose: snapshot.val().purpose
       });
+      let event = new CustomEvent("loadSantasData", {bubbles: true, detail: response});
+      document.dispatchEvent(event);
     });
 
+    
+    
     return response;
   }
   
