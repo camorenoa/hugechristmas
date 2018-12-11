@@ -9,6 +9,7 @@
   --huge-magenta: #ec008c;
   --huge-white: #fff;
   --huge-blue: #2fbbf9;
+  --huge-bg-modal: rgba(0,0,0,0.4);
 }
 /*
 
@@ -84,13 +85,13 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .purpose-data {
-  background-color: rgba(0,0,0,0.4);
+  background-color: var(--huge-bg-modal);
   border: 1px solid var(--huge-black);
   height: 100%;
   left: 0;
   overflow: auto;
   position: fixed;
-  transform: translateY(150%);
+  transform: scale(0);
   transition: .2s all ease;
   top: 0;
   width: 100%;
@@ -98,7 +99,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .purpose-data.visible {
-  transform: translateY(0);
+  transform: scale(1);
 }
 
 .purpose-data-container {
