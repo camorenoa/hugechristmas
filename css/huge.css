@@ -10,6 +10,7 @@
   --huge-white: #fff;
   --huge-blue: #2fbbf9;
   --huge-bg-modal: rgba(0,0,0,0.4);
+  --huge-bg-modal-white: rgba(255,255,255,.85);
 }
 /*
 
@@ -21,8 +22,7 @@ body {
 }
 
 h1 {
-  font-size: 6rem;
-  line-height: 7rem;
+  font-size: 8rem;
 }
 h2 {
   font-size: 5rem;
@@ -55,13 +55,27 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .menu {
-  margin: 50px 0 0;
+  margin: 80px 0 0;
   text-align: center;
+}
+
+.separator {
+  background: black;
+  bottom: 0;
+  height: 50px;
+  left: 50%;
+  margin-top: 20px;
+  position: relative;
+  width: 1px;
+}
+
+.linktosantas {
+  margin-top: 60px;
 }
 
 .title {
   letter-spacing: -.3125rem;
-  padding: 30px 30px 0;
+  padding: 80px 0;
   text-rendering: optimizeLegibility;
   vertical-align: baseline;
   -webkit-font-smoothing: antialiased;
@@ -121,7 +135,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .form-container  {
-  background: var(--huge-bg-modal);
+  background: var(--huge-bg-modal-white);
   height: 100%;
   left: 0;
   overflow: auto;
@@ -135,12 +149,12 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .purpose-data {
-  background: var(--huge-bg-modal);
+  background: var(--huge-bg-modal-white);
   height: 100%;
   left: 0;
   overflow: auto;
+  display: none;
   position: fixed;
-  transform: scale(0);
   transition: .2s all ease-in;
   top: 0;
   width: 100%;
@@ -153,7 +167,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .purpose-data.visible {
-  transform: scale(1);
+  display: block;
 }
 
 .form-wrapper {
@@ -169,14 +183,15 @@ h1,h2,h3,h4,h5,h6, p {
 .purpose-data-container {
   background: var(--huge-white);
   border-radius: 10px;
+  height: 80%;
   margin: 0 auto;
   padding: 20px;
   position: relative;
-  top: 30%;
+  top: 10%;
   width: 80%;
 }
 
-.purpose-data-container .close,
+.purpose-data .close,
 .form-container .close {  
   color: var(--huge-black);
   cursor: pointer;
@@ -209,6 +224,11 @@ h1,h2,h3,h4,h5,h6, p {
   font-size: 1rem;
 }
 
+.word {
+  background: var(--huge-black);
+  padding-top: 100px;
+}
+
 .word .wrapper {
   margin: 0 auto;
   width: 70%;
@@ -221,30 +241,30 @@ h1,h2,h3,h4,h5,h6, p {
 .submenu {
   border-radius: 5px;
   margin: 0 auto;
-  padding: 50px 0;
   width: 80%;
 }
 
 .purpose {
-  margin: 50px 0;
-}
-
-.smalltext {
-  font-size: .8rem;
+  margin: 0 0 50px 0;
 }
 
 .seesantas {
   color: var(--huge-black);
+  font-family: "Copernicus", serif;
+  font-size: 1.2rem;
+  letter-spacing: -1px;
+  text-decoration: none;
 }
 
 .button {
+  color: #fff;
 	cursor: pointer;
-	text-decoration: none !important;
 	display: inline-block;
 	font-family: Arial,sans-serif;
-	font-weight: bold;
+  font-weight: bold;
+  padding: 0 20px;
 	text-align: center;
-	color: #fff;
+	text-decoration: none !important;
 	-webkit-transition: background-color 0.3s,opacity 0.3s;
 	-moz-transition: background-color 0.3s,opacity 0.3s;
 	-o-transition: background-color 0.3s,opacity 0.3s;
@@ -260,10 +280,11 @@ h1,h2,h3,h4,h5,h6, p {
 
 .button.black {
 	background: var(--huge-black);
-	width: 160px;
+	width: 200px;
 	height: 54px;
-	line-height: 54px;
-	font-size: 13px;
+  line-height: 54px;
+  margin: 0;
+	font-size: 16px;
 }
 
 .button:hover {

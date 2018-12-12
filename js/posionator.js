@@ -24,7 +24,8 @@ export function positionator(santas) {
     let randomY = Math.floor(Math.random() * hHeight) + 1;
     let pixelData = canvas.getContext("2d").getImageData(randomX, randomY, 1, 1)
       .data;
-    while (pixelData[2] !== 133) {
+      console.log(pixelData);
+    while (pixelData[2] !== 243) {
       randomX = Math.floor(Math.random() * hWidth) + 1;
       randomY = Math.floor(Math.random() * hHeight) + 1;
       pixelData = canvas.getContext("2d").getImageData(randomX, randomY, 1, 1)
