@@ -17,6 +17,7 @@
 body {
   background: var(--huge-white);
   font-family: "HUGEAvantGarde", Georgia;
+  letter-spacing: -.01719rem;
 }
 
 h1 {
@@ -54,13 +55,16 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .menu {
-  height: 100vh;
   margin: 50px 0 0;
   text-align: center;
 }
 
 .title {
+  letter-spacing: -.3125rem;
   padding: 30px 30px 0;
+  text-rendering: optimizeLegibility;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
 }
 
 .h-logo {
@@ -116,8 +120,22 @@ h1,h2,h3,h4,h5,h6, p {
   transform: scale(1.1);
 }
 
+.form-container  {
+  background: var(--huge-bg-modal);
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  transform: scale(0);
+  transition: .2s all ease-in;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  display: none;
+}
+
 .purpose-data {
-  background: var(--huge-white);
+  background: var(--huge-bg-modal);
   height: 100%;
   left: 0;
   overflow: auto;
@@ -129,11 +147,16 @@ h1,h2,h3,h4,h5,h6, p {
   z-index: 1;
 }
 
+.form-container.visible {
+  display: block;
+  transform: scale(1);
+}
+
 .purpose-data.visible {
   transform: scale(1);
 }
 
-.purpose-data-container {
+.form-wrapper {
   background: var(--huge-white);
   border-radius: 10px;
   margin: 0 auto;
@@ -143,8 +166,14 @@ h1,h2,h3,h4,h5,h6, p {
   width: 50%;
 }
 
-.form-container {
-  z-index: 1;
+.purpose-data-container {
+  background: var(--huge-white);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  top: 30%;
+  width: 80%;
 }
 
 .purpose-data-container .close,
@@ -192,7 +221,7 @@ h1,h2,h3,h4,h5,h6, p {
 .submenu {
   border-radius: 5px;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 50px 0;
   width: 80%;
 }
 
@@ -205,7 +234,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .seesantas {
-  color: var(--huge-magenta);
+  color: var(--huge-black);
 }
 
 .button {
@@ -242,27 +271,6 @@ h1,h2,h3,h4,h5,h6, p {
 	color: #fff;
 }
 
-.form-container {
-  align-content: center;
-  background: var(--huge-white);
-  border: 1px solid var(--huge-black);
-  display: none;
-  justify-content: center;
-  margin: 20px auto;
-  opacity: 0;
-  padding: 30px;
-  transform: scale(0);
-  transition: all .5s linear;
-  width: 400px;
-}
-
-.form-container.active {
-  display: flex;
-  opacity: 1;
-  position: relative;
-  transform: scale(1);
-}
-
 .form-container .form-input {
   display: flex;
   flex-flow: column;
@@ -275,6 +283,7 @@ h1,h2,h3,h4,h5,h6, p {
 
 .form-container .form-input input,
 .form-container .form-input textarea {
+  font-family: "HUGEAvantGarde", Georgia;
   font-size: .8rem;
   height: 25px;
   padding: 10px;
@@ -304,10 +313,18 @@ h1,h2,h3,h4,h5,h6, p {
     font-size: 3.5rem;
     line-height: 4rem;
   }
-  .form-container,
-  .form-container .form-input input,
+  
+  .form-wrapper {
+    width: 80%;  
+  }
+
+  .form-container .form-input input, 
   .form-container .form-input textarea {
-    width: 260px;
+    width: auto;
+  }
+
+  .word .wrapper {
+    width: 95%;
   }
 
   .submenu {
@@ -322,5 +339,15 @@ h1,h2,h3,h4,h5,h6, p {
 
   .santa-random {
     height: 25px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .form-wrapper {
+    width: 50%;  
+  }
+  .form-container .form-input input, 
+  .form-container .form-input textarea {
+    width: 95%;
   }
 }

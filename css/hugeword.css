@@ -1,3 +1,13 @@
+:root {
+  --huge-black: #000;
+  --huge-grey: #808080;
+  --huge-grey-dark: #232525;
+  --huge-magenta: #ec008c;
+  --huge-white: #fff;
+  --huge-blue: #2fbbf9;
+  --huge-bg-modal: rgba(0,0,0,0.4);
+}
+
 .hugetitle p {
   color: #fff;
   font-family: Avenir Next, Helvetica Neue, Helvetica, Tahoma, sans-serif;
@@ -28,8 +38,8 @@
 }
 .hugetitle p span::after {
   z-index: 2;
-  color: #ec008c;
-  text-shadow: -1px 0 1px #ec008c, 1px 0 1px rgba(0,0,0,0.8);
+  color:  var(--huge-grey-dark);
+  text-shadow: -1px 0 1px var(--huge-grey-dark), 1px 0 1px rgba(0,0,0,0.8);
   transform: rotateY(-40deg);
 }
 .hugetitle p span:hover::before {
@@ -70,7 +80,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ec008c;
+  background-color: var(--huge-grey-dark);
   margin: 50px 0 0;
 }
 

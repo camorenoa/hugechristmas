@@ -19,9 +19,16 @@ class HugeChristmas {
   }
 
   loadSantas(santas) {
-    console.log('santas', santas);
+    this.santas = santas;   
     positionator(santas);
     this.santaEvent();
+  }
+
+  dropSantas() {
+    const allSantas = document.querySelectorAll('.santa-random ');
+    for (let item of allSantas) {
+      item.remove();
+    }
   }
 
   santaEvent() {
@@ -61,11 +68,15 @@ class HugeChristmas {
     const messageContainer = document.querySelector('.purpose-data');
     const closeFormButton = document.querySelector('.form-container .close');
     const seesantas = document.querySelector('.seesantas');
+    
+    window.addEventListener('resize', (e) => {
+      this.dropSantas();
+      this.santas = this.data.readData();
+    });
 
     this.purposeButton.addEventListener('click', (e) => {
       e.preventDefault();
       this.closeForm();
-      window.scroll({ top: 600, left: 0, behavior: 'smooth' });
     });
 
     seesantas.addEventListener('click', (e) => {
@@ -86,7 +97,7 @@ class HugeChristmas {
 
     document.addEventListener("closeForm", function(e) {
       setTimeout(() => formNode.classList.add('submitted'), 300);
-      setTimeout(() => formNode.classList.toggle('active'), 3000);
+      setTimeout(() => formNode.classList.toggle('visible'), 2000);
     });
 
     document.addEventListener("loadSantasData", (e) => {
@@ -95,7 +106,6 @@ class HugeChristmas {
 
     this.saveButton.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log(new FormData(document.querySelector('.form-wrapper')));
       const post = this.writePost({
         name: name.value,
         purpose: purpose.value,
@@ -107,7 +117,7 @@ class HugeChristmas {
   closeForm() {
     const formNode = document.querySelector('.form-container');
     const formLogic = document.querySelector('.form-wrapper');
-    formNode.classList.toggle('active');
+    formNode.classList.toggle('visible');
     formNode.classList.remove('submitted');
     formLogic.reset();
   }
