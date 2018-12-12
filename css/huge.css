@@ -17,6 +17,7 @@
 body {
   background: var(--huge-white);
   font-family: "HUGEAvantGarde", Georgia;
+  letter-spacing: 0px;
 }
 
 h1 {
